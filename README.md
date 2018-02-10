@@ -1,4 +1,4 @@
-# Keras SparseNets
+# Sparse Networks in Keras
 Keras Implementation of Sparse Networks from the paper [Sparsely Connected Convolutional Networks](https://arxiv.org/abs/1801.05895).
 
 Code derived from the offical repository - https://github.com/Lyken17/SparseNet
