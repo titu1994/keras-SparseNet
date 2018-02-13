@@ -299,7 +299,7 @@ def _conv_block(ip, nb_filter, bottleneck=False, dropout_rate=None, weight_decay
     concat_axis = 1 if K.image_data_format() == 'channels_first' else -1
 
     with K.name_scope('conv_block'):
-        x = BatchNormalization(axis=concat_axis)(ip)
+        x = BatchNormalization(axis=concat_axis, momentum=0.1, epsilon=1e-5)(ip)
         x = Activation('relu')(x)
 
         if bottleneck:
@@ -307,7 +307,7 @@ def _conv_block(ip, nb_filter, bottleneck=False, dropout_rate=None, weight_decay
 
             x = Conv2D(inter_channel, (1, 1), kernel_initializer='he_normal', padding='same', use_bias=False,
                        kernel_regularizer=l2(weight_decay))(x)
-            x = BatchNormalization(axis=concat_axis)(x)
+            x = BatchNormalization(axis=concat_axis, epsilon=1e-5, momentum=0.1)(x)
             x = Activation('relu')(x)
 
         x = Conv2D(nb_filter, (3, 3), kernel_initializer='he_normal', padding='same', use_bias=False)(x)
@@ -371,7 +371,7 @@ def _transition_block(ip, nb_filter, compression=1.0, weight_decay=1e-4):
     concat_axis = 1 if K.image_data_format() == 'channels_first' else -1
 
     with K.name_scope('transition_block'):
-        x = BatchNormalization(axis=concat_axis)(ip)
+        x = BatchNormalization(axis=concat_axis, epsilon=1e-5, momentum=0.1)(ip)
         x = Activation('relu')(x)
         x = Conv2D(int(nb_filter * compression), (1, 1), kernel_initializer='he_normal', padding='same', use_bias=False,
                    kernel_regularizer=l2(weight_decay))(x)
@@ -462,7 +462,7 @@ def _create_dense_net(nb_classes, img_input, include_top, depth=40, nb_dense_blo
                strides=initial_strides, use_bias=False, kernel_regularizer=l2(weight_decay))(img_input)
 
     if subsample_initial_block:
-        x = BatchNormalization(axis=concat_axis)(x)
+        x = BatchNormalization(axis=concat_axis, epsilon=1e-5, momentum=0.1)(x)
         x = Activation('relu')(x)
         x = MaxPooling2D((3, 3), strides=(2, 2), padding='same')(x)
 
@@ -478,7 +478,7 @@ def _create_dense_net(nb_classes, img_input, include_top, depth=40, nb_dense_blo
     x, nb_filter = _dense_block(x, final_nb_layer, nb_filter, growth_rate[-1], bottleneck=bottleneck,
                                 dropout_rate=dropout_rate, weight_decay=weight_decay)
 
-    x = BatchNormalization(axis=concat_axis)(x)
+    x = BatchNormalization(axis=concat_axis, epsilon=1e-5, momentum=0.1)(x)
     x = Activation('relu')(x)
     x = GlobalAveragePooling2D()(x)
 
