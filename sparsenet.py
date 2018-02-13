@@ -190,90 +190,90 @@ def SparseNet(input_shape=None, depth=40, nb_dense_block=3, growth_rate=12, nb_f
 
     return model
 
-#
-# def DenseNetImageNet121(input_shape=None,
-#                         bottleneck=True,
-#                         reduction=0.5,
-#                         dropout_rate=0.0,
-#                         weight_decay=1e-4,
-#                         include_top=True,
-#                         weights='imagenet',
-#                         input_tensor=None,
-#                         classes=1000,
-#                         activation='softmax'):
-#     return SparseNet(input_shape, depth=121, nb_dense_block=4, growth_rate=32, nb_filter=64,
-#                      nb_layers_per_block=[6, 12, 24, 16], bottleneck=bottleneck, reduction=reduction,
-#                      dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
-#                      include_top=include_top, weights=weights, input_tensor=input_tensor,
-#                      classes=classes, activation=activation)
-#
-#
-# def DenseNetImageNet169(input_shape=None,
-#                         bottleneck=True,
-#                         reduction=0.5,
-#                         dropout_rate=0.0,
-#                         weight_decay=1e-4,
-#                         include_top=True,
-#                         weights='imagenet',
-#                         input_tensor=None,
-#                         classes=1000,
-#                         activation='softmax'):
-#     return SparseNet(input_shape, depth=169, nb_dense_block=4, growth_rate=32, nb_filter=64,
-#                      nb_layers_per_block=[6, 12, 32, 32], bottleneck=bottleneck, reduction=reduction,
-#                      dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
-#                      include_top=include_top, weights=weights, input_tensor=input_tensor,
-#                      classes=classes, activation=activation)
-#
-#
-# def DenseNetImageNet201(input_shape=None,
-#                         bottleneck=True,
-#                         reduction=0.5,
-#                         dropout_rate=0.0,
-#                         weight_decay=1e-4,
-#                         include_top=True,
-#                         weights=None,
-#                         input_tensor=None,
-#                         classes=1000,
-#                         activation='softmax'):
-#     return SparseNet(input_shape, depth=201, nb_dense_block=4, growth_rate=32, nb_filter=64,
-#                      nb_layers_per_block=[6, 12, 48, 32], bottleneck=bottleneck, reduction=reduction,
-#                      dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
-#                      include_top=include_top, weights=weights, input_tensor=input_tensor,
-#                      classes=classes, activation=activation)
-#
-#
-# def DenseNetImageNet264(input_shape=None,
-#                         bottleneck=True,
-#                         reduction=0.5,
-#                         dropout_rate=0.0,
-#                         weight_decay=1e-4,
-#                         include_top=True,
-#                         weights=None,
-#                         input_tensor=None,
-#                         classes=1000,
-#                         activation='softmax'):
-#     return SparseNet(input_shape, depth=201, nb_dense_block=4, growth_rate=32, nb_filter=64,
-#                      nb_layers_per_block=[6, 12, 64, 48], bottleneck=bottleneck, reduction=reduction,
-#                      dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
-#                      include_top=include_top, weights=weights, input_tensor=input_tensor,
-#                      classes=classes, activation=activation)
-#
-#
-# def DenseNetImageNet161(input_shape=None,
-#                         bottleneck=True,
-#                         reduction=0.5,
-#                         dropout_rate=0.0,
-#                         weight_decay=1e-4,
-#                         include_top=True,
-#                         weights='imagenet',
-#                         input_tensor=None,
-#                         classes=1000,
-#                         activation='softmax'):
-#     return SparseNet(input_shape, depth=161, nb_dense_block=4, growth_rate=48, nb_filter=96,
-#                      nb_layers_per_block=[6, 12, 36, 24], bottleneck=bottleneck, reduction=reduction,
-#                      dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
-#                      include_top=include_top, weights=weights, input_tensor=input_tensor,
-#                      classes=classes, activation=activation)
+
+def SparseNetImageNet121(input_shape=None,
+                         bottleneck=True,
+                         reduction=0.5,
+                         dropout_rate=0.0,
+                         weight_decay=1e-4,
+                         include_top=True,
+                         weights=None,
+                         input_tensor=None,
+                         classes=1000,
+                         activation='softmax'):
+    return SparseNet(input_shape, depth=121, nb_dense_block=4, growth_rate=32, nb_filter=64,
+                     nb_layers_per_block=[6, 12, 24, 16], bottleneck=bottleneck, reduction=reduction,
+                     dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
+                     include_top=include_top, weights=weights, input_tensor=input_tensor,
+                     classes=classes, activation=activation)
+
+
+def SparseNetImageNet169(input_shape=None,
+                         bottleneck=True,
+                         reduction=0.5,
+                         dropout_rate=0.0,
+                         weight_decay=1e-4,
+                         include_top=True,
+                         weights=None,
+                         input_tensor=None,
+                         classes=1000,
+                         activation='softmax'):
+    return SparseNet(input_shape, depth=169, nb_dense_block=4, growth_rate=32, nb_filter=64,
+                     nb_layers_per_block=[6, 12, 32, 32], bottleneck=bottleneck, reduction=reduction,
+                     dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
+                     include_top=include_top, weights=weights, input_tensor=input_tensor,
+                     classes=classes, activation=activation)
+
+
+def SparseNetImageNet201(input_shape=None,
+                         bottleneck=True,
+                         reduction=0.5,
+                         dropout_rate=0.0,
+                         weight_decay=1e-4,
+                         include_top=True,
+                         weights=None,
+                         input_tensor=None,
+                         classes=1000,
+                         activation='softmax'):
+    return SparseNet(input_shape, depth=201, nb_dense_block=4, growth_rate=32, nb_filter=64,
+                     nb_layers_per_block=[6, 12, 48, 32], bottleneck=bottleneck, reduction=reduction,
+                     dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
+                     include_top=include_top, weights=weights, input_tensor=input_tensor,
+                     classes=classes, activation=activation)
+
+
+def SparseNetImageNet264(input_shape=None,
+                         bottleneck=True,
+                         reduction=0.5,
+                         dropout_rate=0.0,
+                         weight_decay=1e-4,
+                         include_top=True,
+                         weights=None,
+                         input_tensor=None,
+                         classes=1000,
+                         activation='softmax'):
+    return SparseNet(input_shape, depth=264, nb_dense_block=4, growth_rate=32, nb_filter=64,
+                     nb_layers_per_block=[6, 12, 64, 48], bottleneck=bottleneck, reduction=reduction,
+                     dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
+                     include_top=include_top, weights=weights, input_tensor=input_tensor,
+                     classes=classes, activation=activation)
+
+
+def SparseNetImageNet161(input_shape=None,
+                         bottleneck=True,
+                         reduction=0.5,
+                         dropout_rate=0.0,
+                         weight_decay=1e-4,
+                         include_top=True,
+                         weights=None,
+                         input_tensor=None,
+                         classes=1000,
+                         activation='softmax'):
+    return SparseNet(input_shape, depth=161, nb_dense_block=4, growth_rate=48, nb_filter=96,
+                     nb_layers_per_block=[6, 12, 36, 24], bottleneck=bottleneck, reduction=reduction,
+                     dropout_rate=dropout_rate, weight_decay=weight_decay, subsample_initial_block=True,
+                     include_top=include_top, weights=weights, input_tensor=input_tensor,
+                     classes=classes, activation=activation)
 
 
 def _exponential_index_fetch(x_list):
